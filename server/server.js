@@ -20,10 +20,10 @@ app.use(express.json());
 app.get('/api/suggest_keywords', (req, res) => {
   const keywords = req.query.keywords;
   const suggestions = [
-    \`\${keywords} specialist\`,
-    \`\${keywords} associate\`,
-    \`junior \${keywords}\`,
-    \`remote \${keywords}\`,
+    `${keywords} specialist`,
+`${keywords} associate`,
+`junior ${keywords}`,
+`remote ${keywords}`,`,
   ];
   res.json({ status: 'success', suggestions });
 });
@@ -32,7 +32,7 @@ app.post('/api/autoapply', upload.none(), async (req, res) => {
   const { keywords, location, userId, remoteOnly, salaryMin, jobType } = req.body;
 
   const newApp = {
-    job_title: \`\${keywords} at \${location}\`,
+    job_title: `${keywords} at ${location}`,
     job_url: 'https://example.com/job123',
     applied_at: new Date().toISOString(),
     user_id: userId,
